@@ -1,0 +1,137 @@
+// 1. Variables (customize your theme colors, fonts, etc.)
+$font-family-base: system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+$color-primary: #646cff;
+$color-primary-hover: #535bf2;
+$color-primary-hover-light: lighten($color-primary-hover, 20%);
+
+$color-bg-dark: #242424;
+$color-text-dark: rgba(255, 255, 255, 0.87);
+
+$color-bg-light: #ffffff;
+$color-text-light: #213547;
+
+// 2. Bootstrap overrides (optional, load before bootstrap if you want to override variables)
+// @import "node_modules/bootstrap/scss/functions";
+// @import "node_modules/bootstrap/scss/variables";
+// $primary: $color-primary;
+// @import "node_modules/bootstrap/scss/bootstrap";
+
+// 3. Base styles
+:root {
+  --color-primary: #{$color-primary};
+  --color-primary-hover: #{$color-primary-hover};
+  --color-primary-hover-light: #{$color-primary-hover-light};
+
+  --color-bg-dark: #{$color-bg-dark};
+  --color-text-dark: #{$color-text-dark};
+
+  --color-bg-light: #{$color-bg-light};
+  --color-text-light: #{$color-text-light};
+
+  font-family: #{$font-family-base};
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+  font-family: var(--font-family);
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: inherit;
+
+  &:hover {
+    color: var(--color-primary-hover);
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+
+  &:hover {
+    filter: drop-shadow(0 0 2em var(--color-primary)aa);
+  }
+
+  &.vanilla:hover {
+    filter: drop-shadow(0 0 2em #f7df1eaa);
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+
+  &:hover {
+    border-color: var(--color-primary);
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+}
+
+// 4. Light theme override
+@media (prefers-color-scheme: light) {
+  :root {
+    background-color: var(--color-bg-light);
+    color: var(--color-text-light);
+  }
+
+  a:hover {
+    color: var(--color-primary-hover-light);
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
