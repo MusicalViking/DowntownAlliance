@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact | MusicalViking — Arthur Belanger</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="/index.html">MusicalViking</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+          aria-controls="navMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="container py-5">
+      <div class="row g-5 align-items-center">
+        <!-- Contact Form -->
+        <div class="col-lg-6">
+          <h1 class="mb-4">Get in Touch</h1>
+          <form novalidate>
+            <div class="mb-3">
+              <label for="contactName" class="form-label">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="contactName"
+                placeholder="Your Name"
+                required
+              />
+              <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="contactEmail" class="form-label">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="contactEmail"
+                placeholder="name@example.com"
+                required
+              />
+              <div class="invalid-feedback">Please enter a valid email.</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="contactMessage" class="form-label">Message</label>
+              <textarea
+                class="form-control"
+                id="contactMessage"
+                rows="5"
+                required
+              ></textarea>
+              <div class="invalid-feedback">Please enter a message.</div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+
+        <!-- Advertisement / Info -->
+        <div class="col-lg-6">
+          <h2>Why Choose MusicalViking?</h2>
+          <p>
+            I’m Arthur Belanger, a dedicated full-stack web developer passionate
+            about delivering modern, clean, and efficient web solutions.
+          </p>
+          <p>
+            With expertise in Bootstrap, Vite, and contemporary front-end
+            tooling, I build fast, responsive websites tailored to your unique
+            needs.
+          </p>
+          <p>
+            Let’s collaborate to elevate your online presence with scalable,
+            maintainable, and beautiful websites.
+          </p>
+          <a href="/about.html" class="btn btn-outline-primary mt-3"
+            >Learn More About Me</a
+          >
+          <hr />
+          <p class="text-muted small">
+            Connect with me on
+            <a
+              href="https://github.com/MusicalViking"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub: MusicalViking
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-primary text-white text-center py-3 mt-auto">
+      <div class="container">
+        &copy; 2025 Arthur Belanger |
+        <a
+          href="https://github.com/MusicalViking"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-white text-decoration-underline"
+        >
+          GitHub: MusicalViking
+        </a>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+    <script>
+      // Bootstrap form validation example
+      (() => {
+        "use strict";
+        const forms = document.querySelectorAll("form");
+
+        Array.from(forms).forEach((form) => {
+          form.addEventListener(
+            "submit",
+            (event) => {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
+  </body>
+</html>
