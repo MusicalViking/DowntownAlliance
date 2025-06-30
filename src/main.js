@@ -1,5 +1,6 @@
 // src/main.js
 import "bootstrap"; // imports Bootstrap's JS for components like navbar toggle
+import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // Import the main SCSS file
