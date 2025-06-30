@@ -1,12 +1,42 @@
 // src/main.js
-import "bootstrap"; // imports Bootstrap's JS for components like navbar toggle
-import "bootstrap-icons/font/bootstrap-icons.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 
-// Import the main SCSS file
-import './styles/style.scss';
+// --- 1. Import Bootstrap Core CSS (before custom SCSS)
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-// Any other JavaScript initialization code
+// --- 2. Bootstrap Icons
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
+// Animate.css (optional CSS library)
+import 'animate.css';
+
+// --- 3. Import SCSS (your custom styles)
+import './styles/style.scss'; // Your own styles override Bootstrap here
+
+// --- 4. Import Bootstrap JavaScript (only what you need)
+import 'bootstrap/js/dist/collapse';
+import 'bootstrap/js/dist/dropdown';
+import 'bootstrap/js/dist/modal';
+import 'bootstrap/js/dist/offcanvas';
+import 'bootstrap/js/dist/tooltip';
+
+// --- 5. Optional: Initialize tooltip globally
+document.addEventListener('DOMContentLoaded', function () {
+  const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+    new bootstrap.Tooltip(tooltipTriggerEl);
+  });
+});
+
+// --- 6. Optional: Initialize external libraries
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
+
+import GLightbox from 'glightbox';
+import 'glightbox/dist/css/glightbox.css';
+const lightbox = GLightbox();
+
+// --- 7. Debug or init code
 console.log('Application started');
 
 (function() {
