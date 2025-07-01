@@ -1,7 +1,7 @@
 # Augusta Downtown Alliance
 
 > **Developer:** Arthur Belanger (GitHub: [MusicalViking](https://github.com/MusicalViking))
-> **Status:** 🚧 Work in Progress
+> **Status:** 🚧 Work in Progress/local development
 > **Location:** Augusta, Maine
 > **Website:** [Downtown Augusta](https://downtownaugusta.org)
 
@@ -15,7 +15,26 @@ Our mission is to create a vibrant downtown district that is the heart of the gr
 
 ## Contributing
 
-We welcome contributions from the community! If you're interested in helping with the development of the Augusta Downtown Alliance website, please contact us through our [GitHub repository](https://github.com/MusicalViking/DowntownAlliance).
+We welcome contributions from the community! Here's how you can help:
+
+1. **Report Bugs**: Open an issue on [GitHub](https://github.com/MusicalViking/DowntownAlliance/issues)
+2. **Suggest Features**: Create a feature request issue
+3. **Submit Code**: Open a pull request with your changes
+
+### Development Workflow
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/your-feature-name`
+3. Commit your changes: `git commit -m 'Add some feature'`
+4. Push to the branch: `git push origin feature/your-feature-name`
+5. Open a pull request
+
+### Code Standards
+
+- Follow existing code style and patterns
+- Write clear, concise commit messages
+- Update documentation when adding new features
+- Test your changes thoroughly
 
 ## Tech Stack
 
@@ -38,48 +57,83 @@ We welcome contributions from the community! If you're interested in helping wit
 - **Contact forms** for visitor inquiries and feedback
 - **Optimized assets** for fast loading times
 
-## Getting Started
+## Development Setup
 
 ### Prerequisites
 
-- Node.js (LTS version recommended)
-- npm (comes with Node.js)
-- XAMPP or similar local development server
+- [Node.js](https://nodejs.org/) (LTS version recommended)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+- [XAMPP](https://www.apachefriends.org/) or similar local development server (for PHP support)
+- [Git](https://git-scm.com/) (for version control)
 
-### Local Development Setup
+### Local Development
 
-1. Clone the repository:
+1. **Clone the repository**:
 
    ```bash
    git clone https://github.com/MusicalViking/DowntownAlliance.git
    cd DowntownAlliance
    ```
 
-2. Install dependencies:
+2. **Install dependencies**:
 
    ```bash
    npm install
    ```
 
-3. Start the development server:
-
+3. **Start the development server**:
    ```bash
    npm run dev
    ```
+   This will start Vite's development server with hot-reload enabled at `http://localhost:5173`
 
-4. For XAMPP setup:
-   - Place the project folder in your `htdocs` directory
-   - Access the site at `http://localhost/site3`
+### XAMPP Setup (for PHP support)
+
+1. **Install XAMPP** if you haven't already
+2. **Clone the repository** into your `htdocs` directory:
+   ```bash
+   cd C:/xampp/htdocs/
+   git clone https://github.com/MusicalViking/DowntownAlliance.git site3
+   ```
+3. **Access the site** at:
+   - Development: `http://localhost:5173` (Vite dev server)
+   - Production: `http://localhost/site3` (XAMPP server)
 
 ### Building for Production
 
-To create a production build:
+1. **Create a production build**:
 
-```bash
-npm run build
+   ```bash
+   npm run build
+   ```
+
+   This will create optimized assets in the `dist` directory.
+
+2. **For XAMPP deployment**:
+   - Copy the contents of the `dist` directory to your web server's root directory
+   - Ensure all PHP files and the `public` directory are also copied
+
+### Development Scripts
+
+- `npm run dev` - Start development server with hot-reload
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint to check code quality
+
+## Environment Variables
+
+Create a `.env` file in the root directory for local development:
+
+```env
+VITE_API_BASE_URL=http://localhost:8000/api
+# Add other environment variables as needed
 ```
 
-The built files will be in the `dist` directory. For XAMPP deployment, you can copy these files to your web server's root directory(htdocs).
+## Code Style
+
+- Follow [Prettier](https://prettier.io/) for code formatting
+- Use [ESLint](https://eslint.org/) for JavaScript/TypeScript linting
+- Follow [BEM](http://getbem.com/) methodology for CSS class naming
 
 ---
 
@@ -87,10 +141,16 @@ The built files will be in the `dist` directory. For XAMPP deployment, you can c
 
 ```
 ├── public/                 # Public assets (copied as-is to build)
-│   ├── css/               # Compiled CSS
+│   ├── forms/             # Form handling
+│   │   └── contact.php    # Contact form processor
 │   ├── img/               # Image assets
-│   ├── js/                # JavaScript files
-│   └── forms/             # Form-related assets
+│   │   ├── blog/          # Blog post images
+│   │   ├── education/     # Educational content images
+│   │   ├── misc/          # Miscellaneous images
+│   │   ├── person/        # Team member photos
+│   │   ├── apple-touch-icon.png  # iOS home screen icon
+│   │   ├── favicon.png    # Site favicon
+│   │   └── logo.webp      # Website logo
 │   └── vite.svg           # Vite logo
 │
 ├── src/                    # Source files
@@ -99,7 +159,7 @@ The built files will be in the `dist` directory. For XAMPP deployment, you can c
 │   ├── scripts/           # JavaScript modules
 │   │   ├── about.js       # About page scripts
 │   │   ├── contact.js     # Contact page scripts
-│   │   ├── forms.js       # Form handling
+│   │   ├── forms.js       # Form handling scripts
 │   │   ├── navbar.js      # Navigation functionality
 │   │   ├── services.js    # Services page scripts
 │   │   └── utils.js       # Utility functions
@@ -108,27 +168,28 @@ The built files will be in the `dist` directory. For XAMPP deployment, you can c
 │       ├── main.css       # Compiled CSS
 │       └── style.scss     # Main SCSS file
 │
-├── index.html             # Home page
-├── about.html             # About Augusta Downtown Alliance
-├── events.html            # Events listing
-├── seasonal.html     # Individual event pages
-├── news.html              # News articles
-├── upcoming.html      # Individual news articles
-├── information.html     # Team and staff information
-├── get_involved.html     # Community and student life
-├── thingsToDo.html # Downtown facilities
-├── sponsors.html         # Educational programs
-├── dt_businesses.html        # Membership information
-├── people.html            # Success stories
-├── services.html          # Services offered
-├── contact.html           # Contact information
-├── privacy.html           # Privacy policy
-├── terms-of-service.html  # Terms of service
-├── starter-page.html      # Starter template
-├── 404.html              # Custom 404 page
+├── *.html                 # HTML page templates
+│   ├── 404.html           # 404 error page
+│   ├── about.html         # About page
+│   ├── contact.html       # Contact page
+│   ├── dt_businesses.html # Downtown businesses directory
+│   ├── events.html        # Events calendar
+│   ├── get_involved.html  # Get involved/volunteer page
+│   ├── index.html         # Homepage
+│   ├── information.html   # General information
+│   ├── news.html          # News and updates
+│   ├── people.html        # Team/people page
+│   ├── privacy.html       # Privacy policy
+│   ├── seasonal.html      # Seasonal events
+│   ├── services.html      # Services page
+│   ├── shopping.html      # Shopping information
+│   ├── sponsors.html      # Sponsors page
+│   ├── terms-of-service.html # Terms of service
+│   ├── thingstodo.html    # Things to do in Augusta
+│   └── upcoming.html      # Upcoming events page
 │
-├── node_modules/         # NPM dependencies (auto-generated)
-├── package.json          # Project configuration
+├── .gitignore            # Git ignore file
+├── package.json          # Project configuration and dependencies
 ├── package-lock.json     # Lock file for dependencies
 ├── postcss.config.js     # PostCSS configuration
 └── vite.config.js        # Vite configuration
@@ -136,12 +197,52 @@ The built files will be in the `dist` directory. For XAMPP deployment, you can c
 
 ---
 
-## Customization
+## Project Customization
 
-- Modify theme colors and fonts in `src/scss/style.scss`.
-- Add or update page-specific JS in `src/js/`.
-- Update navbar links and footer branding in the HTML files.
-- Extend the contact form to connect to your backend or email service.
+### Styling
+
+- **Theme Colors**: Update colors in `src/styles/_variables.scss`
+- **Typography**: Modify font settings in `src/styles/_typography.scss`
+- **Components**: Edit component styles in their respective SCSS files
+
+### JavaScript
+
+- **Page-specific scripts**: Add to `src/scripts/` directory
+- **Shared utilities**: Add to `src/scripts/utils.js`
+- **Form handling**: See `src/scripts/forms.js` for form-related functionality
+
+### Content Updates
+
+- **HTML Pages**: Edit the respective `.html` files in the root directory
+- **Images**: Add images to `public/img/` and reference them with relative paths
+- **Contact Form**: Configure form handling in `public/forms/contact.php`
+
+### Adding New Pages
+
+1. Create a new `.html` file in the root directory
+2. Add the page to the navigation in `src/scripts/navbar.js`
+3. Create any necessary JavaScript in `src/scripts/`
+4. Add styles in the appropriate SCSS file
+
+## Deployment
+
+### Production Deployment
+
+1. Run `npm run build`
+2. Upload the entire project to your web server
+3. Ensure the server is configured to handle:
+   - Clean URLs (remove .html extensions)
+   - PHP for form processing
+   - Proper MIME types for modern web features
+
+### Deployment to Shared Hosting
+
+1. Build the project: `npm run build`
+2. Upload the following to your hosting:
+   - All `.html` files
+   - The `public/` directory
+   - The `dist/` directory
+3. Configure your web server to point to the root directory
 
 ---
 
@@ -150,8 +251,8 @@ The built files will be in the `dist` directory. For XAMPP deployment, you can c
 For more information about the Augusta Downtown Alliance, please visit our [website](https://downtownaugusta.org) or contact us at:
 
 - **Email:** info@downtownaugusta.org
-- **Phone:** (207) 626-2405
-- **Address:** 1 Cony Street, Augusta, ME 04330
+- **Phone:** (207) 458-9551
+- **Address:** New Address Coming Soon
 
 ## License
 
