@@ -1,0 +1,31 @@
+{
+  "name": "site3",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.30.0",
+    "postcss": "^8.5.6",
+    "sass": "^1.89.2",
+    "stylelint": "^16.21.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "stylelint-scss": "^6.12.1",
+    "vite": "^7.0.0",
+    "vite-plugin-html": "^3.2.2"
+  },
+  "dependencies": {
+    "animate.css": "^4.1.1",
+    "aos": "^2.3.4",
+    "bootstrap": "^5.3.7",
+    "bootstrap-icons": "^1.13.1",
+    "glightbox": "^3.3.1",
+    "masonry-layout": "^4.2.2",
+    "scrollreveal": "^4.0.9"
+  }
+}
