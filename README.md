@@ -111,15 +111,15 @@ The built files will be in the `dist` directory. For XAMPP deployment, you can c
 ├── index.html             # Home page
 ├── about.html             # About Augusta Downtown Alliance
 ├── events.html            # Events listing
-├── event-details.html     # Individual event pages
+├── seasonal.html     # Individual event pages
 ├── news.html              # News articles
-├── news-details.html      # Individual news articles
-├── faculty-staff.html     # Team and staff information
-├── students-life.html     # Community and student life
-├── campus-facilities.html # Downtown facilities
-├── academics.html         # Educational programs
-├── admissions.html        # Membership information
-├── alumni.html            # Success stories
+├── upcoming.html      # Individual news articles
+├── information.html     # Team and staff information
+├── get_involved.html     # Community and student life
+├── thingsToDo.html # Downtown facilities
+├── sponsors.html         # Educational programs
+├── dt_businesses.html        # Membership information
+├── people.html            # Success stories
 ├── services.html          # Services offered
 ├── contact.html           # Contact information
 ├── privacy.html           # Privacy policy
