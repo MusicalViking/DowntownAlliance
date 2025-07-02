@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\xampp\\htdocs\\site3\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\xampp\\htdocs\\site3\\src\\main.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\xampp\\htdocs\\site3\\about.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:about.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,7 +34,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "vite.config.js",
               "DocumentMoniker": "C:\\xampp\\htdocs\\site3\\vite.config.js",
               "RelativeDocumentMoniker": "vite.config.js",
@@ -38,11 +42,12 @@
               "RelativeToolTip": "vite.config.js",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-07-01T02:04:22.242Z"
+              "WhenOpened": "2025-07-01T02:04:22.242Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "index.html",
               "DocumentMoniker": "C:\\xampp\\htdocs\\site3\\index.html",
               "RelativeDocumentMoniker": "index.html",
@@ -55,15 +60,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "about.html",
               "DocumentMoniker": "C:\\xampp\\htdocs\\site3\\about.html",
               "RelativeDocumentMoniker": "about.html",
               "ToolTip": "C:\\xampp\\htdocs\\site3\\about.html",
               "RelativeToolTip": "about.html",
-              "ViewState": "AgIAADcBAAAAAAAAAAAzwCYBAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAACQBAAAAAAAAAAAzwCYBAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2025-07-01T02:38:38.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.js",
+              "DocumentMoniker": "C:\\xampp\\htdocs\\site3\\src\\main.js",
+              "RelativeDocumentMoniker": "src\\main.js",
+              "ToolTip": "C:\\xampp\\htdocs\\site3\\src\\main.js",
+              "RelativeToolTip": "src\\main.js",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-07-02T01:24:38.117Z",
               "EditorCaption": ""
             }
           ]

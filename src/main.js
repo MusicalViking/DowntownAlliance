@@ -1,204 +1,189 @@
-// src/main.js
-
-// --- 1. Import Bootstrap Core CSS (before custom SCSS)
+// --- 1. Core Styles & Libraries
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-// --- 2. Bootstrap Icons
 import 'bootstrap-icons/font/bootstrap-icons.css';
-
-// Animate.css (optional CSS library)
 import 'animate.css';
+import 'aos/dist/aos.css';
+import 'glightbox/dist/css/glightbox.css';
 
-// --- 3. Import SCSS (your custom styles)
-import './styles/style.scss'; // Your own styles override Bootstrap here
+import './styles/style.scss'; // Your custom styles
 
-// --- 4. Import Bootstrap JavaScript (only what you need)
+// --- 2. Bootstrap JavaScript Components
 import 'bootstrap/js/dist/collapse';
 import 'bootstrap/js/dist/dropdown';
 import 'bootstrap/js/dist/modal';
 import 'bootstrap/js/dist/offcanvas';
 import 'bootstrap/js/dist/tooltip';
 
-// --- 5. Optional: Initialize tooltip globally
-document.addEventListener('DOMContentLoaded', function () {
-  const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-  tooltipTriggerList.forEach(function (tooltipTriggerEl) {
-    new bootstrap.Tooltip(tooltipTriggerEl);
-  });
-});
-
-// --- 6. Optional: Initialize external libraries
+// --- 3. Third-Party Plugins
 import AOS from 'aos';
-import 'aos/dist/aos.css';
-AOS.init();
-
 import GLightbox from 'glightbox';
-import 'glightbox/dist/css/glightbox.css';
-const lightbox = GLightbox();
+import '/src/lib/purecounter_vanilla.js'; // PureCounter (vanilla, non-module)
 
-// --- 7. Debug or init code
-console.log('Application started');
+// --- 4. Init Bootstrap Tooltip
+function initTooltips() {
+	const tooltipTriggerList = Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+	tooltipTriggerList.forEach(el => new bootstrap.Tooltip(el));
+}
 
-(function() {
-  "use strict";
+// --- 5. Init AOS
+function initAOS() {
+	AOS.init({
+		duration: 800,
+		easing: 'ease-in-out',
+		once: true,
+		mirror: false
+	});
+}
 
-  /**
-   * Apply .scrolled class to the body as the page is scrolled down
-   */
-  function toggleScrolled() {
-    const selectBody = document.querySelector('body');
-    const selectHeader = document.querySelector('#header');
-    if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
-    window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
-  }
+// --- 6. Init PureCounter
+function initPureCounter() {
+	if (typeof PureCounter === 'function') {
+		new PureCounter();
+	}
+}
 
-  document.addEventListener('scroll', toggleScrolled);
-  window.addEventListener('load', toggleScrolled);
+// --- 7. Init GLightbox
+function initGLightbox() {
+	GLightbox({ selector: '.glightbox' });
+}
 
-  /**
-   * Mobile nav toggle
-   */
-  const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+// --- 8. Init Scroll-to-Top Button
+function initScrollTopButton() {
+	const scrollTop = document.querySelector('.scroll-top');
+	if (!scrollTop) return;
 
-  function mobileNavToogle() {
-    document.querySelector('body').classList.toggle('mobile-nav-active');
-    mobileNavToggleBtn.classList.toggle('bi-list');
-    mobileNavToggleBtn.classList.toggle('bi-x');
-  }
-  if (mobileNavToggleBtn) {
-    mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
-  }
+	scrollTop.addEventListener('click', e => {
+		e.preventDefault();
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	});
 
-  /**
-   * Hide mobile nav on same-page/hash links
-   */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
-      if (document.querySelector('.mobile-nav-active')) {
-        mobileNavToogle();
-      }
-    });
+	function toggleScrollTop() {
+		window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+	}
 
-  });
+	window.addEventListener('scroll', toggleScrollTop);
+	window.addEventListener('load', toggleScrollTop);
+}
 
-  /**
-   * Toggle mobile nav dropdowns
-   */
-  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-    navmenu.addEventListener('click', function(e) {
-      e.preventDefault();
-      this.parentNode.classList.toggle('active');
-      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
-      e.stopImmediatePropagation();
-    });
-  });
+// --- 9. Init Sticky Header Scroll Class
+function initStickyHeaderScrollEffect() {
+	const body = document.body;
+	const header = document.querySelector('#header');
 
-  /**
-   * Preloader
-   */
-  const preloader = document.querySelector('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove();
-    });
-  }
+	if (!header?.classList.contains('scroll-up-sticky') &&
+		!header?.classList.contains('sticky-top') &&
+		!header?.classList.contains('fixed-top')) return;
 
-  /**
-   * Scroll top button
-   */
-  let scrollTop = document.querySelector('.scroll-top');
+	function toggleScrolled() {
+		window.scrollY > 100 ? body.classList.add('scrolled') : body.classList.remove('scrolled');
+	}
 
-  function toggleScrollTop() {
-    if (scrollTop) {
-      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
-    }
-  }
-  scrollTop.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
+	document.addEventListener('scroll', toggleScrolled);
+	window.addEventListener('load', toggleScrolled);
+}
 
-  window.addEventListener('load', toggleScrollTop);
-  document.addEventListener('scroll', toggleScrollTop);
+// --- 10. Init Mobile Navigation
+function initMobileNav() {
+	const toggleBtn = document.querySelector('.mobile-nav-toggle');
+	const body = document.body;
 
-  /**
-   * Animation on scroll function and init
-   */
-  function aosInit() {
-    AOS.init({
-      duration: 600,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    });
-  }
-  window.addEventListener('load', aosInit);
+	function toggleMobileNav() {
+		body.classList.toggle('mobile-nav-active');
+		toggleBtn?.classList.toggle('bi-list');
+		toggleBtn?.classList.toggle('bi-x');
+	}
 
-  /**
-   * Initiate Pure Counter
-   */
-  new PureCounter();
+	toggleBtn?.addEventListener('click', toggleMobileNav);
 
-  /**
-   * Init isotope layout and filters
-   */
-  document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
-    let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
-    let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
-    let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
+	// Auto-close on nav link click
+	document.querySelectorAll('#navmenu a').forEach(link =>
+		link.addEventListener('click', () => {
+			if (body.classList.contains('mobile-nav-active')) toggleMobileNav();
+		})
+	);
 
-    let initIsotope;
-    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
-      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
-        itemSelector: '.isotope-item',
-        layoutMode: layout,
-        filter: filter,
-        sortBy: sort
-      });
-    });
+	// Toggle dropdowns
+	document.querySelectorAll('.navmenu .toggle-dropdown').forEach(toggle =>
+		toggle.addEventListener('click', e => {
+			e.preventDefault();
+			const parent = toggle.parentElement;
+			const submenu = parent?.nextElementSibling;
+			parent?.classList.toggle('active');
+			submenu?.classList.toggle('dropdown-active');
+			e.stopImmediatePropagation();
+		})
+	);
+}
 
-    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
-      filters.addEventListener('click', function() {
-        isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
-        this.classList.add('filter-active');
-        initIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        if (typeof aosInit === 'function') {
-          aosInit();
-        }
-      }, false);
-    });
+// --- 11. Init Preloader
+function initPreloader() {
+	const preloader = document.querySelector('#preloader');
+	if (!preloader) return;
 
-  });
+	window.addEventListener('load', () => preloader.remove());
+}
 
-  /**
-   * Init swiper sliders
-   */
-  function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
-      let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
-      );
+// --- 12. Init Swiper
+function initSwiperSliders() {
+	document.querySelectorAll(".init-swiper").forEach(swiperElement => {
+		const configEl = swiperElement.querySelector(".swiper-config");
+		if (!configEl) return;
 
-      if (swiperElement.classList.contains("swiper-tab")) {
-        initSwiperWithCustomPagination(swiperElement, config);
-      } else {
-        new Swiper(swiperElement, config);
-      }
-    });
-  }
+		const config = JSON.parse(configEl.innerHTML.trim());
+		if (swiperElement.classList.contains("swiper-tab")) {
+			initSwiperWithCustomPagination(swiperElement, config); // <- You must define this elsewhere
+		} else {
+			new Swiper(swiperElement, config);
+		}
+	});
+}
 
-  window.addEventListener("load", initSwiper);
+// --- 13. Init Isotope (with AOS refresh)
+function initIsotopeFilters() {
+	document.querySelectorAll('.isotope-layout').forEach(isotopeItem => {
+		const layout = isotopeItem.dataset.layout || 'masonry';
+		const filter = isotopeItem.dataset.defaultFilter || '*';
+		const sort = isotopeItem.dataset.sort || 'original-order';
 
-  /**
-   * Initiate glightbox
-   */
-  const glightbox = GLightbox({
-    selector: '.glightbox'
-  });
+		let initIsotope;
 
-})();
+		imagesLoaded(isotopeItem.querySelector('.isotope-container'), () => {
+			initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
+				itemSelector: '.isotope-item',
+				layoutMode: layout,
+				filter: filter,
+				sortBy: sort
+			});
+		});
+
+		isotopeItem.querySelectorAll('.isotope-filters li').forEach(filterBtn => {
+			filterBtn.addEventListener('click', () => {
+				isotopeItem.querySelector('.filter-active')?.classList.remove('filter-active');
+				filterBtn.classList.add('filter-active');
+				initIsotope.arrange({ filter: filterBtn.dataset.filter });
+
+				// Refresh AOS after reflow
+				if (typeof AOS !== 'undefined') AOS.refresh();
+			});
+		});
+	});
+}
+
+// --- 14. App Init
+function initApp() {
+	console.log('Application started');
+
+	initTooltips();
+	initStickyHeaderScrollEffect();
+	initMobileNav();
+	initScrollTopButton();
+	initPreloader();
+	initAOS();
+	initPureCounter();
+	initGLightbox();
+	initSwiperSliders();
+	initIsotopeFilters();
+}
+
+// --- 15. Launch App After DOM Loads
+window.addEventListener('DOMContentLoaded', initApp);
