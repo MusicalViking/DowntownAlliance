@@ -19,6 +19,9 @@ import AOS from 'aos';
 import GLightbox from 'glightbox';
 import '/src/lib/purecounter_vanilla.js'; // PureCounter (vanilla, non-module)
 
+// --- 3.1 Dark Mode
+import { DarkMode } from './scripts/dark-mode';
+
 // --- 4. Init Bootstrap Tooltip
 function initTooltips() {
 	const tooltipTriggerList = Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
@@ -174,15 +177,20 @@ function initApp() {
 	console.log('Application started');
 
 	initTooltips();
-	initStickyHeaderScrollEffect();
-	initMobileNav();
-	initScrollTopButton();
-	initPreloader();
 	initAOS();
 	initPureCounter();
 	initGLightbox();
+	initScrollTopButton();
+	initStickyHeaderScrollEffect();
+	initMobileNav();
+	initPreloader();
 	initSwiperSliders();
 	initIsotopeFilters();
+
+	// Initialize Dark Mode
+	if (document.getElementById('theme-toggle')) {
+		new DarkMode();
+	}
 }
 
 // --- 15. Launch App After DOM Loads

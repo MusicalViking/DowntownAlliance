@@ -36,7 +36,7 @@
   --nav-dropdown-hover-color: #08915e; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
-/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the same color scheme. */
 
 .light-background {
   --background-color: #ffffff;
@@ -49,6 +49,228 @@
   --heading-color: #ffffff;
   --surface-color: #252525;
   --contrast-color: #ffffff;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+  --background-color: #1a1a1a;
+  --default-color: #e0e0e0;
+  --heading-color: #ffffff;
+  --surface-color: #252525;
+  --contrast-color: #ffffff;
+  --nav-color: rgba(255, 255, 255, 0.75);
+  --nav-hover-color: #4caf9d;
+  --nav-dropdown-background-color: #2d2d2d;
+  --nav-dropdown-color: #e0e0e0;
+  --nav-dropdown-hover-color: #4caf9d;
+  
+  /* Add smooth transition for theme switching */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  
+  /* Style adjustments for better dark mode contrast */
+  color: var(--default-color);
+  
+  /* Override specific elements */
+  .card, .form-control, .dropdown-menu {
+    background-color: var(--surface-color);
+    color: var(--default-color);
+    border-color: #444;
+  }
+  
+  .form-control, .form-select {
+    background-color: #2d2d2d;
+    border-color: #444;
+    color: var(--default-color);
+    
+    &::placeholder {
+      color: #888;
+    }
+  }
+  
+  .table {
+    color: var(--default-color);
+    
+    th, td {
+      border-color: #444;
+    }
+  }
+  
+  /* Ensure text is readable on dark backgrounds */
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: var(--heading-color);
+  }
+  
+  /* Adjust link colors for better visibility */
+  a {
+    color: #4caf9d;
+    
+    &:hover {
+      color: #3d8b7d;
+    }
+  }
+  
+  /* Style the header in dark mode */
+  .header {
+    --default-color: #ffffff;
+    --heading-color: #ffffff;
+    
+    &.header-scrolled {
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+  }
+  
+  /* Style buttons in dark mode */
+  .btn-primary {
+    background-color: #08915e;
+    border-color: #08915e;
+    
+    &:hover {
+      background-color: #067a4f;
+      border-color: #067a4f;
+    }
+  }
+  
+  /* Style form elements */
+  .form-control:focus {
+    background-color: #333;
+    color: #fff;
+    border-color: #4caf9d;
+    box-shadow: 0 0 0 0.25rem rgba(76, 175, 157, 0.25);
+  }
+  
+  /* Style cards */
+  .card {
+    background-color: #252525;
+    border: 1px solid #444;
+    
+    .card-header {
+      background-color: #2d2d2d;
+      border-bottom: 1px solid #444;
+    }
+  }
+  
+  /* Style dropdowns */
+  .dropdown-menu {
+    background-color: #2d2d2d;
+    border: 1px solid #444;
+    
+    .dropdown-item {
+      color: var(--default-color);
+      
+      &:hover, &:focus {
+        background-color: #3a3a3a;
+        color: #fff;
+      }
+    }
+  }
+  
+  /* Style modals */
+  .modal-content {
+    background-color: #252525;
+    border: 1px solid #444;
+    
+    .modal-header, .modal-footer {
+      border-color: #444;
+    }
+  }
+  
+  /* Style alerts */
+  .alert {
+    background-color: #2d2d2d;
+    border-color: #444;
+    color: var(--default-color);
+  }
+  
+  /* Style tables */
+  .table {
+    --bs-table-bg: transparent;
+    --bs-table-striped-bg: rgba(255, 255, 255, 0.02);
+    --bs-table-hover-bg: rgba(255, 255, 255, 0.05);
+  }
+  
+  /* Style pagination */
+  .page-link {
+    background-color: #2d2d2d;
+    border-color: #444;
+    color: var(--default-color);
+    
+    &:hover {
+      background-color: #3a3a3a;
+      border-color: #4caf9d;
+      color: #4caf9d;
+    }
+    
+    &.active {
+      background-color: #4caf9d;
+      border-color: #4caf9d;
+      color: #fff;
+    }
+  }
+}
+
+/* Dark Mode Toggle Button */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  
+  #theme-toggle {
+    display: flex;
+    align-items: center;
+    color: var(--nav-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-size: 1rem;
+    
+    &:hover, &:focus {
+      color: var(--nav-hover-color);
+      outline: none;
+    }
+    
+    #theme-icon {
+      font-size: 1.25rem;
+      display: inline-flex;
+      align-items: center;
+    }
+    
+    #theme-text {
+      font-family: var(--nav-font);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+  }
+  
+  // Adjust for dark mode
+  .dark-mode & {
+    #theme-toggle {
+      color: var(--nav-color);
+      
+      &:hover, &:focus {
+        color: var(--nav-hover-color);
+      }
+    }
+  }
+}
+
+// Adjust for mobile view
+@media (max-width: 1199.98px) {
+  .theme-toggle {
+    margin-left: 0;
+    margin-top: 1rem;
+    justify-content: center;
+    width: 100%;
+    
+    #theme-toggle {
+      padding: 0.5rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      background-color: rgba(255, 255, 255, 0.05);
+      
+      #theme-text {
+        display: inline !important;
+      }
+    }
+  }
 }
 
 /* Smooth scroll */
