@@ -1,8 +1,8 @@
 // --- 1. Core Styles & Libraries
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'animate.css';
 import 'aos/dist/aos.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import 'glightbox/dist/css/glightbox.css';
 
 import './styles/style.scss'; // Your custom styles
@@ -187,11 +187,24 @@ function initApp() {
 	initSwiperSliders();
 	initIsotopeFilters();
 
-	// Initialize Dark Mode
+	// Initialize Dark Mode - check if we're on a page with the theme toggle
 	if (document.getElementById('theme-toggle')) {
-		new DarkMode();
+		// Check if DarkMode is already initialized
+		if (!window.darkModeInitialized) {
+			new DarkMode();
+			window.darkModeInitialized = true;
+		}
 	}
 }
 
 // --- 15. Launch App After DOM Loads
-window.addEventListener('DOMContentLoaded', initApp);
+if (document.readyState === 'loading') {
+	// If the document is still loading, wait for DOMContentLoaded
+	document.addEventListener('DOMContentLoaded', initApp);
+} else {
+	// If the document has already loaded, initialize immediately
+	initApp();
+}
+
+// Export for potential manual initialization
+window.initApp = initApp;

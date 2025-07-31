@@ -13,6 +13,21 @@ Official website for the Augusta Downtown Alliance, a non-profit organization de
 
 Our mission is to create a vibrant downtown district that is the heart of the greater Augusta community, supporting local businesses, hosting community events, and preserving the historic character of our downtown area.
 
+## Dark Mode Implementation
+
+The website features a comprehensive dark mode implementation that enhances user experience in low-light conditions:
+
+### Key Features
+- **Automatic Detection**: Detects and respects the user's system color scheme preference
+- **Manual Toggle**: Users can switch between light and dark modes
+- **Persistent Preference**: User's theme choice is saved in local storage
+- **Smooth Transitions**: Visual transitions when switching between themes
+- **Accessible**: Proper color contrast and ARIA attributes for screen readers
+
+### Files
+- `src/scripts/dark-mode.js`: Handles theme switching and preference management
+- `src/styles/style.scss`: Contains all dark mode styles (look for `.dark-mode` class)
+
 ## Contributing
 
 We welcome contributions from the community! Here's how you can help:
@@ -44,6 +59,7 @@ We welcome contributions from the community! Here's how you can help:
 - **Icons:** Bootstrap Icons
 - **Responsive Design:** Mobile-first approach with responsive breakpoints
 - **Module Bundling:** Native ES Modules
+- **Dark Mode:** System preference detection with manual override
 - **Hosting:** XAMPP local development environment
 
 ## Features
@@ -56,6 +72,7 @@ We welcome contributions from the community! Here's how you can help:
 - **News and updates** section for community announcements
 - **Contact forms** for visitor inquiries and feedback
 - **Optimized assets** for fast loading times
+- **Dark Mode** with system preference detection and manual toggle
 
 ## Development Setup
 

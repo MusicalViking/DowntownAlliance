@@ -1,6 +1,6 @@
 /**
  * Dark Mode Toggle Functionality
- * 
+ *
  * This script handles the dark mode functionality including:
  * - Toggling between light and dark themes
  * - Saving user preference to localStorage
@@ -10,89 +10,97 @@
 
 export class DarkMode {
   constructor() {
-    this.themeToggle = document.getElementById('theme-toggle');
-    this.themeIcon = document.getElementById('theme-icon');
-    this.themeText = document.getElementById('theme-text');
+    // Store all theme toggles on the page
+    this.themeToggles = document.querySelectorAll('#theme-toggle');
+    this.themeIcons = document.querySelectorAll('#theme-icon');
+    this.themeTexts = document.querySelectorAll('#theme-text');
     this.prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+    // Initialize dark mode
     this.init();
   }
 
   init() {
-    // Check for saved user preference or system preference
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = this.prefersDarkScheme.matches;
-    
-    // Set initial theme
-    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-      this.enableDarkMode();
-    } else {
-      this.enableLightMode();
-    }
+    // Apply saved theme or system preference
+    this.applyTheme();
 
-    // Add event listeners
-    if (this.themeToggle) {
-      this.themeToggle.addEventListener('click', () => this.toggleTheme());
-    }
+    // Add event listeners to all theme toggles
+    this.themeToggles.forEach(toggle => {
+      // Remove any existing listeners to prevent duplicates
+      const newToggle = toggle.cloneNode(true);
+      toggle.parentNode.replaceChild(newToggle, toggle);
+
+      // Add click event
+      newToggle.addEventListener('click', () => this.toggleTheme());
+    });
 
     // Listen for system theme changes
     this.prefersDarkScheme.addListener((e) => {
       if (!localStorage.getItem('theme')) {
-        if (e.matches) {
-          this.enableDarkMode();
-        } else {
-          this.enableLightMode();
-        }
+        this.applyTheme(e.matches);
       }
     });
   }
 
   toggleTheme() {
-    if (document.documentElement.classList.contains('dark-mode')) {
+    const isDark = document.documentElement.classList.contains('dark-mode');
+    if (isDark) {
       this.enableLightMode();
     } else {
       this.enableDarkMode();
     }
   }
 
+  applyTheme(forceDark = null) {
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = this.prefersDarkScheme.matches;
+
+    let isDark = false;
+
+    if (savedTheme === 'dark' || (savedTheme === null && systemPrefersDark) || forceDark === true) {
+      isDark = true;
+    }
+
+    if (isDark) {
+      document.documentElement.classList.add('dark-mode');
+      this.updateToggleUI(true);
+    } else {
+      document.documentElement.classList.remove('dark-mode');
+      this.updateToggleUI(false);
+    }
+  }
+
   enableDarkMode() {
-    document.documentElement.classList.add('dark-mode');
     localStorage.setItem('theme', 'dark');
-    this.updateToggleUI(true);
+    this.applyTheme(true);
   }
 
   enableLightMode() {
-    document.documentElement.classList.remove('dark-mode');
     localStorage.setItem('theme', 'light');
-    this.updateToggleUI(false);
+    this.applyTheme(false);
   }
 
   updateToggleUI(isDarkMode) {
-    if (!this.themeIcon || !this.themeText) return;
-    
-    if (isDarkMode) {
-      this.themeIcon.classList.remove('bi-moon');
-      this.themeIcon.classList.add('bi-sun');
-      this.themeText.textContent = 'Light Mode';
-      if (this.themeToggle) {
-        this.themeToggle.setAttribute('aria-label', 'Switch to light mode');
-        this.themeToggle.setAttribute('title', 'Switch to light mode');
-      }
-    } else {
-      this.themeIcon.classList.remove('bi-sun');
-      this.themeIcon.classList.add('bi-moon');
-      this.themeText.textContent = 'Dark Mode';
-      if (this.themeToggle) {
-        this.themeToggle.setAttribute('aria-label', 'Switch to dark mode');
-        this.themeToggle.setAttribute('title', 'Switch to dark mode');
-      }
-    }
+    // Update all theme icons and texts on the page
+    this.themeIcons.forEach(icon => {
+      icon.classList.toggle('bi-moon', !isDarkMode);
+      icon.classList.toggle('bi-sun', isDarkMode);
+    });
+
+    this.themeTexts.forEach(text => {
+      text.textContent = isDarkMode ? 'Light Mode' : 'Dark Mode';
+    });
+
+    // Update all toggle buttons
+    this.themeToggles.forEach(toggle => {
+      const label = isDarkMode ? 'Switch to light mode' : 'Switch to dark mode';
+      toggle.setAttribute('aria-label', label);
+      toggle.setAttribute('title', label);
+    });
   }
 }
 
-// Initialize dark mode when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  // Check if we're on a page with the theme toggle
-  if (document.getElementById('theme-toggle')) {
-    new DarkMode();
-  }
-});
+// Initialize dark mode when the module is imported
+if (document.getElementById('theme-toggle')) {
+  new DarkMode();
+}
