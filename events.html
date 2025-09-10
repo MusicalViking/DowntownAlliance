@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <base href="/" />
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Events - Augusta Downtown</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content="Discover upcoming events in Downtown Augusta, ME. Find concerts, festivals, and community gatherings in the heart of Maine's capital city." />
+    <meta name="keywords" content="Augusta ME events, downtown Augusta events, Maine capital events, Augusta concerts, Augusta festivals, things to do in Augusta" />
 
     <!-- Favicons -->
     <link href="/img/favicon.png" rel="icon" />
     <link href="/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
 
-    <!-- =======================================================
-	* Template Name: NiceSchool
-	* Template URL: https://bootstrapmade.com/nice-school-bootstrap-education-template/
-	* Updated: May 10 2025 with Bootstrap v5.3.6
-	* Author: BootstrapMade.com
-	* License: https://bootstrapmade.com/license/
-	======================================================== -->
+    <!-- Vendor CSS Files -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link href="/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+    <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="/css/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" />
   </head>
 
   <body class="events-page">
+    <!-- ======= Header ======= -->
     <header id="header" class="header d-flex align-items-center fixed-top">
-      <div
-        class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
-      >
+      <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
         <a href="/index.html" class="logo d-flex align-items-center">
-          <img src="/img/ADA_Logo.png" alt="" />
+          <img src="/img/ADA_Logo.png" alt="Augusta Downtown Alliance Logo" />
           <h1 class="sitename">Augusta Downtown</h1>
         </a>
 
         <nav id="navmenu" class="navmenu">
           <ul>
-            <li><a href="/index.html" class="active">Home</a></li>
+            <li><a href="/index.html">Home</a></li>
             <li class="dropdown">
               <a href="/about.html">
                 <span>About</span>
@@ -42,9 +52,7 @@
                 <li><a href="/thingsToDo.html">Things To Do</a></li>
                 <li><a href="/dt_businesses.html">Downtown Businesses</a></li>
                 <li><a href="/sponsors.html">Sponsors</a></li>
-                <li>
-                  <a href="information.html">Contacts &amp; Information</a>
-                </li>
+                <li><a href="information.html">Contacts &amp; Information</a></li>
               </ul>
             </li>
 
@@ -126,13 +134,12 @@
       <!-- Page Title -->
       <div
         class="page-title dark-background"
-        style="background-image: url(assets/img/education/showcase-1.webp)"
+        style="background-image: url('/img/placeholders/events-hero.jpg')"
       >
         <div class="container position-relative">
           <h1>Events</h1>
           <p>
-            Esse dolorum voluptatum ullam est sint nemo et est ipsa porro
-            placeat quibusdam quia assumenda numquam molestias.
+            Discover exciting events happening in Downtown Augusta. From art walks to music festivals, there's always something going on in the heart of Maine's capital city.
           </p>
           <nav class="breadcrumbs">
             <ol>
@@ -144,103 +151,72 @@
       </div>
       <!-- End Page Title -->
       <!-- Events 2 Section -->
-      <section id="events-2" class="events-2 section">
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <section id="events" class="events section">
+        <div class="container" data-aos="fade-up">
+          <div class="section-header">
+            <h2>Upcoming Events</h2>
+            <p>Join us for exciting events in Downtown Augusta!</p>
+          </div>
+          
           <div class="row g-4">
             <div class="col-lg-8">
               <div class="events-list">
-                <div class="event-item" data-aos="fade-up">
-                  <div class="event-date">
-                    <span class="day">15</span>
-                    <span class="month">JUN</span>
+                <!-- Event 1 -->
+                <div class="event-item mb-4" data-aos="fade-up">
+                  <div class="event-date text-center me-4">
+                    <span class="day d-block display-5 fw-bold text-primary">15</span>
+                    <span class="month text-uppercase">SEP</span>
                   </div>
                   <div class="event-content">
-                    <h3>Annual Science Fair Exhibition</h3>
-                    <div class="event-meta">
-                      <p><i class="bi bi-clock"></i> 09:00 AM - 04:00 PM</p>
-                      <p>
-                        <i class="bi bi-geo-alt"></i> Main Campus Auditorium
-                      </p>
-                    </div>
+                    <h3><a href="event_details.html">Augusta Art Walk</a></h3>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Proin gravida dolor sit amet lacus accumsan.
+                      Explore the vibrant art scene in Downtown Augusta. Local artists showcase their work in various galleries and businesses. Free and open to the public.
                     </p>
-                    <a href="#" class="btn-event"
-                      >Learn More <i class="bi bi-arrow-right"></i
-                    ></a>
+                    <div class="event-meta">
+                      <span><i class="bi bi-clock"></i> 5:00 PM - 8:00 PM</span>
+                      <span><i class="bi bi-geo-alt"></i> Downtown Augusta, ME</span>
+                    </div>
+                    <a href="event_details.html" class="btn btn-outline-primary btn-sm mt-2">Learn More</a>
                   </div>
                 </div>
                 <!-- End Event Item -->
 
-                <div class="event-item" data-aos="fade-up" data-aos-delay="100">
-                  <div class="event-date">
-                    <span class="day">22</span>
-                    <span class="month">JUN</span>
+                <!-- Event 2 -->
+                <div class="event-item mb-4" data-aos="fade-up" data-aos-delay="100">
+                  <div class="event-date text-center me-4">
+                    <span class="day d-block display-5 fw-bold text-primary">22</span>
+                    <span class="month text-uppercase">SEP</span>
                   </div>
                   <div class="event-content">
-                    <h3>Parent-Teacher Conference</h3>
-                    <div class="event-meta">
-                      <p><i class="bi bi-clock"></i> 01:00 PM - 06:00 PM</p>
-                      <p><i class="bi bi-geo-alt"></i> Multiple Classrooms</p>
-                    </div>
+                    <h3><a href="event_details.html">Farmers Market</a></h3>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Ut elit tellus, luctus nec ullamcorper mattis, pulvinar
-                      dapibus leo. Proin sagittis nisl rhoncus mattis rhoncus.
+                      Fresh local produce, artisanal foods, and handmade crafts at the Augusta Farmers Market. Support local farmers and businesses every Saturday.
                     </p>
-                    <a href="#" class="btn-event"
-                      >Learn More <i class="bi bi-arrow-right"></i
-                    ></a>
+                    <div class="event-meta">
+                      <span><i class="bi bi-clock"></i> 9:00 AM - 1:00 PM</span>
+                      <span><i class="bi bi-geo-alt"></i> Mill Park, Augusta</span>
+                    </div>
+                    <a href="event_details.html" class="btn btn-outline-primary btn-sm mt-2">Learn More</a>
                   </div>
                 </div>
                 <!-- End Event Item -->
 
-                <div class="event-item" data-aos="fade-up" data-aos-delay="200">
-                  <div class="event-date">
-                    <span class="day">30</span>
-                    <span class="month">JUN</span>
+                <!-- Event 3 -->
+                <div class="event-item mb-4" data-aos="fade-up" data-aos-delay="200">
+                  <div class="event-date text-center me-4">
+                    <span class="day d-block display-5 fw-bold text-primary">05</span>
+                    <span class="month text-uppercase">OCT</span>
                   </div>
                   <div class="event-content">
-                    <h3>Summer Sports Tournament Final</h3>
-                    <div class="event-meta">
-                      <p><i class="bi bi-clock"></i> 02:30 PM - 05:30 PM</p>
-                      <p><i class="bi bi-geo-alt"></i> Sports Complex</p>
-                    </div>
+                    <h3><a href="event_details.html">Fall Festival</a></h3>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Curabitur non nulla sit amet nisl tempus convallis quis ac
-                      lectus. Mauris blandit aliquet elit, eget tincidunt nibh
-                      pulvinar a.
+                      Celebrate the fall season with live music, food trucks, craft vendors, and family activities in the heart of downtown Augusta.
                     </p>
-                    <a href="#" class="btn-event"
-                      >Learn More <i class="bi bi-arrow-right"></i
-                    ></a>
-                  </div>
-                </div>
-                <!-- End Event Item -->
-
-                <div class="event-item" data-aos="fade-up" data-aos-delay="300">
-                  <div class="event-date">
-                    <span class="day">05</span>
-                    <span class="month">JUL</span>
-                  </div>
-                  <div class="event-content">
-                    <h3>Graduation Ceremony Class of 2023</h3>
                     <div class="event-meta">
-                      <p><i class="bi bi-clock"></i> 10:00 AM - 01:00 PM</p>
-                      <p><i class="bi bi-geo-alt"></i> Central Auditorium</p>
+                      <span><i class="bi bi-clock"></i> 11:00 AM - 6:00 PM</span>
+                      <span><i class="bi bi-geo-alt"></i> Waterfront Park, Augusta</span>
                     </div>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Pellentesque in ipsum id orci porta dapibus. Vivamus
-                      suscipit tortor eget felis porttitor volutpat. Vestibulum
-                      ante ipsum primis.
-                    </p>
-                    <a href="#" class="btn-event"
-                      >Learn More <i class="bi bi-arrow-right"></i
-                    ></a>
+                    <a href="event_details.html" class="btn btn-outline-primary btn-sm mt-2">Learn More</a>
                   </div>
                 </div>
                 <!-- End Event Item -->
@@ -273,113 +249,84 @@
 
             <div class="col-lg-4">
               <div class="sidebar">
-                <div
-                  class="sidebar-item"
-                  data-aos="fade-up"
-                  data-aos-delay="100"
-                >
-                  <h3 class="sidebar-title">Upcoming Events</h3>
-                  <div class="event-calendar">
-                    <div class="calendar-header">
-                      <h4>June 2023</h4>
+                <!-- Search Widget -->
+                <div class="sidebar-widget search-widget">
+                  <h4 class="widget-title">Search Events</h4>
+                  <form action="#" class="search-form">
+                    <input type="text" class="form-control" placeholder="Search events...">
+                    <button type="submit"><i class="bi bi-search"></i></button>
+                  </form>
+                </div>
+                
+                <!-- Upcoming Events Widget -->
+                <div class="sidebar-widget recent-events">
+                  <h4 class="widget-title">Upcoming Events</h4>
+                  <div class="event-item d-flex mb-3">
+                    <div class="event-date me-3 text-center">
+                      <span class="day d-block fw-bold">15</span>
+                      <span class="month text-uppercase">SEP</span>
                     </div>
-                    <div class="calendar-body">
-                      <div class="weekdays">
-                        <div>Su</div>
-                        <div>Mo</div>
-                        <div>Tu</div>
-                        <div>We</div>
-                        <div>Th</div>
-                        <div>Fr</div>
-                        <div>Sa</div>
+                    <div class="event-details">
+                      <h6><a href="event_details.html">Augusta Art Walk</a></h6>
+                      <div class="event-meta">
+                        <span><i class="bi bi-clock small"></i> 5:00 PM</span>
                       </div>
-                      <div class="days">
-                        <div class="day other-month">28</div>
-                        <div class="day other-month">29</div>
-                        <div class="day other-month">30</div>
-                        <div class="day other-month">31</div>
-                        <div class="day">1</div>
-                        <div class="day">2</div>
-                        <div class="day">3</div>
-                        <div class="day">4</div>
-                        <div class="day">5</div>
-                        <div class="day">6</div>
-                        <div class="day">7</div>
-                        <div class="day">8</div>
-                        <div class="day">9</div>
-                        <div class="day">10</div>
-                        <div class="day">11</div>
-                        <div class="day">12</div>
-                        <div class="day">13</div>
-                        <div class="day">14</div>
-                        <div class="day has-event">15</div>
-                        <div class="day">16</div>
-                        <div class="day">17</div>
-                        <div class="day">18</div>
-                        <div class="day">19</div>
-                        <div class="day">20</div>
-                        <div class="day">21</div>
-                        <div class="day has-event">22</div>
-                        <div class="day">23</div>
-                        <div class="day">24</div>
-                        <div class="day">25</div>
-                        <div class="day">26</div>
-                        <div class="day">27</div>
-                        <div class="day">28</div>
-                        <div class="day">29</div>
-                        <div class="day has-event">30</div>
-                        <div class="day other-month">1</div>
+                    </div>
+                  </div>
+                  <div class="event-item d-flex">
+                    <div class="event-date me-3 text-center">
+                      <span class="day d-block fw-bold">22</span>
+                      <span class="month text-uppercase">SEP</span>
+                    </div>
+                    <div class="event-details">
+                      <h6><a href="event_details.html">Farmers Market</a></h6>
+                      <div class="event-meta">
+                        <span><i class="bi bi-clock small"></i> 9:00 AM</span>
                       </div>
                     </div>
                   </div>
                 </div>
-
-                <div
-                  class="sidebar-item featured-event"
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                >
-                  <h3 class="sidebar-title">Featured Event</h3>
-                  <div class="featured-event-content">
+                
+                <!-- Tags Widget -->
+                <div class="sidebar-widget tags">
+                  <h4 class="widget-title">Popular Tags</h4>
+                  <div class="tag-cloud">
+                    <a href="#">Art</a>
+                    <a href="#">Music</a>
+                    <a href="#">Food</a>
+                    <a href="#">Family</a>
+                    <a href="#">Festival</a>
+                    <a href="#">Market</a>
+                  </div>
+                </div>
+                
+                <!-- CTA Widget -->
+                <div class="sidebar-widget cta-widget bg-light p-4 text-center rounded">
+                  <h5>Hosting an Event?</h5>
+                  <p>List your event on our calendar and reach thousands of local residents and visitors.</p>
+                  <a href="#" class="btn btn-primary btn-sm">Submit an Event</a>
+                </div>
+                
+                <!-- Featured Event Widget -->
+                <div class="sidebar-widget featured-event mt-4">
+                  <h4 class="widget-title">Featured Event</h4>
+                  <div class="featured-event-content border rounded p-3">
                     <img
-                      src="/img/education/events-5.webp"
+                      src="/img/placeholders/featured-event.jpg"
                       alt="Featured Event"
-                      class="img-fluid"
+                      class="img-fluid rounded mb-3"
                     />
-                    <h4>Annual Arts Festival</h4>
-                    <p><i class="bi bi-calendar-event"></i> July 15-17, 2023</p>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Proin eget tortor risus consectetur adipiscing elit.
+                    <h5>Augusta Art Walk</h5>
+                    <p class="mb-2">
+                      Explore the vibrant art scene in Downtown Augusta. Local artists showcase their work in various galleries and businesses.
                     </p>
-                    <a href="#" class="btn-register">Register Now</a>
-                  </div>
-                </div>
-
-                <div
-                  class="sidebar-item"
-                  data-aos="fade-up"
-                  data-aos-delay="300"
-                >
-                  <h3 class="sidebar-title">Event Categories</h3>
-                  <div class="categories">
-                    <ul>
-                      <li>
-                        <a href="#">Academic <span>(12)</span></a>
-                      </li>
-                      <li>
-                        <a href="#">Sports <span>(8)</span></a>
-                      </li>
-                      <li>
-                        <a href="#">Cultural <span>(6)</span></a>
-                      </li>
-                      <li>
-                        <a href="#">Workshops <span>(4)</span></a>
-                      </li>
-                      <li>
-                        <a href="#">Conferences <span>(3)</span></a>
-                      </li>
-                    </ul>
+                    <div class="event-meta mb-2">
+                      <span class="d-block"><i class="bi bi-calendar-event"></i> September 15, 2023</span>
+                      <span><i class="bi bi-clock"></i> 5:00 PM - 8:00 PM</span>
+                    </div>
+                    <a href="event_details.html" class="btn btn-outline-primary btn-sm w-100">
+                      Learn More <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -390,70 +337,71 @@
       <!-- /Events 2 Section -->
     </main>
 
+    <!-- ======= Footer ======= -->
     <footer id="footer" class="footer position-relative dark-background">
       <div class="container footer-top">
         <div class="row gy-4">
           <div class="col-lg-4 col-md-6 footer-about">
             <a href="/index.html" class="logo d-flex align-items-center">
-              <span class="sitename">Augusta Downtown</span>
+              <span class="sitename">Augusta Downtown Alliance</span>
             </a>
             <div class="footer-contact pt-3">
-              <p>A108 Adam Street</p>
-              <p>New York, NY 535022</p>
+              <p>1 Cony Street, Suite 1</p>
+              <p>Augusta, ME 04330</p>
               <p class="mt-3">
-                <strong>Phone:</strong> <span>+1 5589 55488 55</span>
+                <strong>Phone:</strong> <span>(207) 626-1205</span>
               </p>
-              <p><strong>Email:</strong> <span>info@example.com</span></p>
+              <p><strong>Email:</strong> <span>info@augustadowntown.com</span></p>
             </div>
             <div class="social-links d-flex mt-4">
-              <a href=""><i class="bi bi-twitter-x"></i></a>
-              <a href=""><i class="bi bi-facebook"></i></a>
-              <a href=""><i class="bi bi-instagram"></i></a>
-              <a href=""><i class="bi bi-linkedin"></i></a>
+              <a href="https://www.facebook.com/AugustaDowntown" target="_blank"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/augustadowntown" target="_blank"><i class="bi bi-instagram"></i></a>
+              <a href="https://twitter.com/AugustaDowntown" target="_blank"><i class="bi bi-twitter-x"></i></a>
+              <a href="https://www.linkedin.com/company/augusta-downtown-alliance" target="_blank"><i class="bi bi-linkedin"></i></a>
             </div>
           </div>
 
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Quick Links</h4>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Terms of service</a></li>
-              <li><a href="#">Privacy policy</a></li>
+              <li><a href="/index.html">Home</a></li>
+              <li><a href="/about.html">About Us</a></li>
+              <li><a href="/thingsToDo.html">Things To Do</a></li>
+              <li><a href="/events.html">Events</a></li>
+              <li><a href="/contact.html">Contact Us</a></li>
             </ul>
           </div>
 
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Our Services</h4>
+            <h4>For Visitors</h4>
             <ul>
-              <li><a href="#">Web Design</a></li>
-              <li><a href="#">Web Development</a></li>
-              <li><a href="#">Product Management</a></li>
-              <li><a href="#">Marketing</a></li>
-              <li><a href="#">Graphic Design</a></li>
+              <li><a href="#">Dining Guide</a></li>
+              <li><a href="/shopping.html">Shopping</a></li>
+              <li><a href="#">Attractions</a></li>
+              <li><a href="#">Maps & Directions</a></li>
+              <li><a href="/information.html">Visitor Information</a></li>
             </ul>
           </div>
 
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Hic solutasetp</h4>
+            <h4>For Businesses</h4>
             <ul>
-              <li><a href="#">Molestiae accusamus iure</a></li>
-              <li><a href="#">Excepturi dignissimos</a></li>
-              <li><a href="#">Suscipit distinctio</a></li>
-              <li><a href="#">Dilecta</a></li>
-              <li><a href="#">Sit quas consectetur</a></li>
+              <li><a href="/dt_businesses.html">Business Directory</a></li>
+              <li><a href="/sponsors.html">Sponsorship</a></li>
+              <li><a href="/get_involved.html">Get Involved</a></li>
+              <li><a href="#">Business Resources</a></li>
+              <li><a href="/contact.html">Contact Us</a></li>
             </ul>
           </div>
 
           <div class="col-lg-2 col-md-3 footer-links">
-            <h4>Nobis illum</h4>
+            <h4>Resources</h4>
             <ul>
-              <li><a href="#">Ipsam</a></li>
-              <li><a href="#">Laudantium dolorum</a></li>
-              <li><a href="#">Dinera</a></li>
-              <li><a href="#">Trodelas</a></li>
-              <li><a href="#">Flexo</a></li>
+              <li><a href="/news.html">News & Updates</a></li>
+              <li><a href="/privacy.html">Privacy Policy</a></li>
+              <li><a href="/terms-of-service.html">Terms of Service</a></li>
+              <li><a href="/sitemap.html">Sitemap</a></li>
+              <li><a href="#">Accessibility</a></li>
             </ul>
           </div>
         </div>
@@ -469,17 +417,25 @@
     </footer>
 
     <!-- Scroll Top -->
-    <a
-      href="#"
-      id="scroll-top"
-      class="scroll-top d-flex align-items-center justify-content-center"
-      ><i class="bi bi-arrow-up-short"></i
-    ></a>
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+      <i class="bi bi-arrow-up-short"></i>
+    </a>
 
     <!-- Preloader -->
     <div id="preloader"></div>
 
-    <!-- Main JS File -->
-    <script type="module" src="/src/main.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/aos/aos.js"></script>
+    <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="/js/main.js"></script>
+    
+    <!-- Dark Mode Script -->
+    <script src="/src/scripts/dark-mode.js"></script>
   </body>
 </html>
