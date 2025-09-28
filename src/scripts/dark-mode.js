@@ -10,6 +10,19 @@
 
 export class DarkMode {
   constructor() {
+    // Store reference to the instance
+    const instance = this;
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => instance.initializeDarkMode());
+    } else {
+      // If DOM is already loaded, initialize immediately
+      setTimeout(() => instance.initializeDarkMode(), 0);
+    }
+  }
+  
+  initializeDarkMode() {
     console.log('DarkMode: Initializing...');
     // Store all theme toggles on the page
     this.themeToggles = document.querySelectorAll('#theme-toggle');
@@ -123,7 +136,16 @@ export class DarkMode {
   }
 }
 
+// Export a function to initialize dark mode
+export function initDarkMode() {
+  // Only initialize if not already initialized
+  if (!window.darkModeInitialized) {
+    window.darkModeInitialized = true;
+    new DarkMode();
+  }
+}
+
 // Initialize dark mode when the module is imported
-if (document.getElementById('theme-toggle')) {
-  new DarkMode();
+if (typeof document !== 'undefined') {
+  initDarkMode();
 }

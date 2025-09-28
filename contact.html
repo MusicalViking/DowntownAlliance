@@ -5,32 +5,15 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Contact Us - Augusta Downtown Alliance</title>
-    <meta
-      name="description"
-      content="Contact the Augusta Downtown Alliance. Get in touch with our team for inquiries, partnerships, or to learn more about downtown Augusta."
-    />
-    <meta
-      name="keywords"
-      content="Augusta Maine, contact, downtown Augusta, Augusta Downtown Alliance, visitor information, business inquiries, Maine capital city"
-    />
+    <meta name="description" content="Contact the Augusta Downtown Alliance. Get in touch with our team for inquiries, partnerships, or to learn more about downtown Augusta." />
+    <meta name="keywords" content="Augusta Maine, contact, downtown Augusta, Augusta Downtown Alliance, visitor information, business inquiries, Maine capital city" />
 
-    <!-- Favicons -->
+    <!-- favicons -->
     <link href="/img/favicon.png" rel="icon" />
     <link href="/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-      rel="stylesheet"
-    />
-
-    <!-- Vendor CSS Files -->
-    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
-    <link href="/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
-    <link href="/vendor/aos/aos.css" rel="stylesheet" />
-    <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
-    <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/fonts/your-font.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- CSS -->
     <link rel="stylesheet" href="/src/styles/main.css" />
@@ -59,44 +42,60 @@
                 <i class="bi bi-chevron-down toggle-dropdown"></i>
               </a>
               <ul>
-                <li><a href="/thingsToDo.html">Things To Do</a></li>
-                <li><a href="/dt_businesses.html">Downtown Businesses</a></li>
-                <li><a href="/sponsors.html">Sponsors</a></li>
-                <li>
-                  <a href="information.html">Contacts &amp; Information</a>
-                </li>
+                <li><a href="/things-to-do">Things To Do</a></li>
+                <li><a href="/businesses">Downtown Businesses</a></li>
+                <li><a href="/sponsors">Sponsors</a></li>
+                <li><a href="/information">Contacts &amp; Information</a></li>
               </ul>
             </li>
-            <li><a href="get_involved.html">Get Involved</a></li>
-            <li><a href="news.html">News</a></li>
+
+            <li><a href="/get-involved">Get Involved</a></li>
+            <li><a href="/news">News</a></li>
             <li class="dropdown">
               <a href="#">
                 <span>Events</span>
                 <i class="bi bi-chevron-down toggle-dropdown"></i>
               </a>
               <ul>
-                <li><a href="upcoming.html">Upcoming</a></li>
-                <li><a href="seasonal.html">Seasonal</a></li>
-                <li><a href="starter-page.html">Music &amp; Arts</a></li>
+                <li><a href="/events/upcoming">Upcoming</a></li>
+                <li><a href="/events/seasonal">Seasonal</a></li>
+                <li><a href="/events/music-arts">Music &amp; Arts</a></li>
               </ul>
             </li>
-            <li><a href="contact.html" class="active">Contact</a></li>
-            <!-- Dark Mode Toggle -->
-            <div class="theme-toggle ms-3 d-flex align-items-center">
+
+            <li class="dropdown">
+              <a href="#">
+                <span>Living Here</span>
+                <i class="bi bi-chevron-down toggle-dropdown"></i>
+              </a>
+              <ul>
+                <li><a href="/community">Community</a></li>
+                <li><a href="/events">Events Calendar</a></li>
+                <li><a href="/shopping">Shopping &amp; Dining</a></li>
+                <li><a href="/attractions">Attractions</a></li>
+                <li><a href="/visitor-info">Visitor Information</a></li>
+              </ul>
+            </li>
+
+            <li><a href="/contact" class="active">Contact</a></li>
+            <li class="ms-lg-3">
               <button
                 id="theme-toggle"
-                class="btn btn-link p-0 border-0 bg-transparent"
+                class="theme-toggle"
                 aria-label="Toggle dark mode"
               >
-                <i id="theme-icon" class="bi bi-moon-fill"></i>
-                <span id="theme-text" class="ms-1 d-none d-md-inline"
+                <i id="theme-icon" class="bi bi-moon"></i>
+                <span id="theme-text" class="d-none d-lg-inline"
                   >Dark Mode</span
                 >
               </button>
-            </div>
+            </li>
           </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
+
+        <button class="mobile-nav-toggle d-lg-none">
+          <i class="bi bi-list"></i>
+        </button>
       </div>
     </header>
     <!-- End Header -->
@@ -376,6 +375,35 @@
           <span>All Rights Reserved</span>
         </p>
       </div>
+
+      <!-- Credits Section -->
+      <div class="container credits text-center py-3">
+        <p>
+          Site developed and donated by
+          <a href="https://github.com/MusicalViking/maineBreadOfLife"
+             target="_blank"
+             rel="noopener noreferrer"
+             title="Visit Github for raw code.">
+            Arthur (Volunteer Developer).
+          </a>
+        </p>
+        <p>
+          Built with support from
+          <a href="https://bravebehindbars.org/"
+             target="_blank"
+             rel="noopener noreferrer">
+            MIT's Brave Behind Bars Program
+          </a>.
+        </p>
+        <p>
+          <a href="https://github.com/MusicalViking/License/blob/main/Belanger%20Non-commercial%20Open%20License(BNOL%20v1.0).md"
+             title="MIT License"
+             target="_blank"
+             rel="noopener noreferrer">
+            MIT License
+          </a>
+        </p>
+      </div>
     </footer>
 
     <!-- Scroll Top -->
@@ -389,16 +417,8 @@
     <!-- Preloader -->
     <div id="preloader"></div>
 
-    <!-- Vendor JS Files -->
-    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/vendor/aos/aos.js"></script>
-    <script src="/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="/vendor/php-email-form/validate.js"></script>
-
-    <!-- Template Main JS File -->
-    <script src="/js/main.js"></script>
+    <!-- Main JS File -->
+    <script type="module" src="/src/main.js"></script>
 
     <!-- Dark Mode Script -->
     <script src="/src/scripts/dark-mode.js"></script>

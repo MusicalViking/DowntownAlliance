@@ -20,7 +20,7 @@ import GLightbox from 'glightbox';
 import '/src/lib/purecounter_vanilla.js'; // PureCounter (vanilla, non-module)
 
 // --- 3.1 Dark Mode
-import { DarkMode } from './scripts/dark-mode';
+import { initDarkMode } from './scripts/dark-mode';
 
 // --- 4. Init Bootstrap Tooltip
 function initTooltips() {
@@ -187,14 +187,8 @@ function initApp() {
 	initSwiperSliders();
 	initIsotopeFilters();
 
-	// Initialize Dark Mode - check if we're on a page with the theme toggle
-	if (document.getElementById('theme-toggle')) {
-		// Check if DarkMode is already initialized
-		if (!window.darkModeInitialized) {
-			new DarkMode();
-			window.darkModeInitialized = true;
-		}
-	}
+	// Initialize Dark Mode
+	initDarkMode();
 }
 
 // --- 15. Launch App After DOM Loads

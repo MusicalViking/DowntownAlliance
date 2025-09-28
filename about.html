@@ -1,43 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" class="dark-mode">
+<html lang="en">
   <head>
     <base href="/" />
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>About - Augusta Downtown Alliance</title>
-    <meta
-      name="description"
-      content="Learn about Augusta Downtown Alliance - Our mission, vision, and the team working to make downtown Augusta a vibrant community hub"
-    />
-    <meta
-      name="keywords"
-      content="Augusta Downtown Alliance, about us, Augusta Maine, downtown development, community organization, Maine capital city"
-    />
+    <meta name="description" content="Learn about Augusta Downtown Alliance - Our mission, vision, and the team working to make downtown Augusta a vibrant community hub" />
+    <meta name="keywords" content="Augusta Downtown Alliance, about us, Augusta Maine, downtown development, community organization, Maine capital city" />
 
-    <!-- Favicons -->
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-      rel="stylesheet"
-    />
+    <!-- favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+    <link href="/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
-    <!-- Vendor CSS Files -->
-    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
-    <link href="/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
-    <link href="/vendor/aos/aos.css" rel="stylesheet" />
-    <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
-    <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/fonts/your-font.woff2" as="font" type="font/woff2" crossorigin>
 
-    <!-- Template Main CSS File -->
-    <link href="/css/main.css" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
-    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="/src/styles/main.css" />
+
+    <!-- Vite client for HMR in development -->
+    <script type="module" src="/src/main.js"></script>
   </head>
 
-  <body class="about-page dark-mode">
+  <body class="about-page">
     <header id="header" class="header d-flex align-items-center fixed-top">
       <div
         class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
@@ -56,44 +41,42 @@
                 <i class="bi bi-chevron-down toggle-dropdown"></i>
               </a>
               <ul>
-                <li><a href="/thingsToDo.html">Things To Do</a></li>
-                <li><a href="/dt_businesses.html">Downtown Businesses</a></li>
-                <li><a href="/sponsors.html">Sponsors</a></li>
-                <li>
-                  <a href="information.html">Contacts &amp; Information</a>
-                </li>
+                <li><a href="/things-to-do">Things To Do</a></li>
+                <li><a href="/businesses">Downtown Businesses</a></li>
+                <li><a href="/sponsors">Sponsors</a></li>
+                <li><a href="/information">Contacts &amp; Information</a></li>
               </ul>
             </li>
 
-            <li><a href="get_involved.html">Get Involved</a></li>
-            <li><a href="news.html">News</a></li>
+            <li><a href="/get-involved">Get Involved</a></li>
+            <li><a href="/news">News</a></li>
             <li class="dropdown">
               <a href="#">
                 <span>Events</span>
                 <i class="bi bi-chevron-down toggle-dropdown"></i>
               </a>
               <ul>
-                <li><a href="upcoming.html">Upcoming</a></li>
-                <li><a href="seasonal.html">Seasonal</a></li>
-                <li><a href="starter-page.html">Music &amp; Arts</a></li>
+                <li><a href="/events/upcoming">Upcoming</a></li>
+                <li><a href="/events/seasonal">Seasonal</a></li>
+                <li><a href="/events/music-arts">Music &amp; Arts</a></li>
               </ul>
             </li>
 
             <li class="dropdown">
               <a href="#">
-                <span> Living Here</span>
+                <span>Living Here</span>
                 <i class="bi bi-chevron-down toggle-dropdown"></i>
               </a>
               <ul>
-                <li><a href="/people.html">Community</a></li>
-                <li><a href="/events.html">Events Calendar</a></li>
-                <li><a href="/shopping.html">Shopping & Dining</a></li>
-                <li><a href="/thingsToDo.html">Attractions</a></li>
-                <li><a href="/information.html">Visitor Information</a></li>
+                <li><a href="/community">Community</a></li>
+                <li><a href="/events">Events Calendar</a></li>
+                <li><a href="/shopping">Shopping &amp; Dining</a></li>
+                <li><a href="/attractions">Attractions</a></li>
+                <li><a href="/visitor-info">Visitor Information</a></li>
               </ul>
             </li>
 
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="/contact">Contact</a></li>
             <li class="ms-lg-3">
               <button
                 id="theme-toggle"
@@ -107,8 +90,11 @@
               </button>
             </li>
           </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
+
+        <button class="mobile-nav-toggle d-lg-none">
+          <i class="bi bi-list"></i>
+        </button>
       </div>
     </header>
 
@@ -794,6 +780,35 @@
           &copy; <span>Copyright</span>
           <strong class="px-1 sitename">Augusta Downtown</strong>
           <span>All Rights Reserved</span>
+        </p>
+      </div>
+
+      <!-- Credits Section -->
+      <div class="container credits text-center py-3">
+        <p>
+          Site developed and donated by
+          <a href="https://github.com/MusicalViking/maineBreadOfLife"
+             target="_blank"
+             rel="noopener noreferrer"
+             title="Visit Github for raw code.">
+            Arthur (Volunteer Developer).
+          </a>
+        </p>
+        <p>
+          Built with support from
+          <a href="https://bravebehindbars.org/"
+             target="_blank"
+             rel="noopener noreferrer">
+            MIT's Brave Behind Bars Program
+          </a>.
+        </p>
+        <p>
+          <a href="https://github.com/MusicalViking/License/blob/main/Belanger%20Non-commercial%20Open%20License(BNOL%20v1.0).md"
+             title="MIT License"
+             target="_blank"
+             rel="noopener noreferrer">
+            MIT License
+          </a>
         </p>
       </div>
     </footer>

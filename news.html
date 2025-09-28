@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <base href="/" />
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>News - Augusta Downtown</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content="Stay updated with the latest news and updates from Augusta Downtown. Discover events, business highlights, and community news in Maine's capital city." />
+    <meta name="keywords" content="Augusta Maine news, downtown Augusta updates, Augusta events, Maine capital news, Augusta business news, Augusta community news" />
 
-    <!-- Favicons -->
+    <!-- favicons -->
     <link href="/img/favicon.png" rel="icon" />
     <link href="/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
-    <!-- =======================================================
-	* Template Name: NiceSchool
-	* Template URL: https://bootstrapmade.com/nice-school-bootstrap-local-template/
-	* Updated: May 10 2025 with Bootstrap v5.3.6
-	* Author: BootstrapMade.com
-	* License: https://bootstrapmade.com/license/
-	======================================================== -->
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/fonts/your-font.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/src/styles/main.css" />
+
+    <!-- Vite client for HMR in development -->
+    <script type="module" src="/src/main.js"></script>
   </head>
 
   <body class="news-page">
@@ -70,52 +72,24 @@
               <ul>
                 <li><a href="/people.html">People</a></li>
                 <li><a href="/events.html">Event Details</a></li>
-                <li><a href="/shopping.html">Shopping</a></li>
                 <li><a href="">Schools</a></li>
                 <li><a href="">Family Activities</a></li>
                 <li><a href="starter-page.html">Real Estate</a></li>
               </ul>
             </li>
-
-            <!-- <li class="dropdown">
-						<a href="#">
-							<span>Dropdown</span>
-							<i class="bi bi-chevron-down toggle-dropdown"></i>
-						</a>
-						<ul>
-							<li><a href="#">Dropdown 1</a></li>
-							<li class="dropdown">
-								<a href="#">
-									<span>Deep Dropdown</span>
-									<i class="bi bi-chevron-down toggle-dropdown"></i>
-								</a>
-								<ul>
-									<li><a href="#">Deep Dropdown 1</a></li>
-									<li><a href="#">Deep Dropdown 2</a></li>
-									<li><a href="#">Deep Dropdown 3</a></li>
-									<li><a href="#">Deep Dropdown 4</a></li>
-									<li><a href="#">Deep Dropdown 5</a></li>
-								</ul>
-							</li>
-							<li><a href="#">Dropdown 2</a></li>
-							<li><a href="#">Dropdown 3</a></li>
-							<li><a href="#">Dropdown 4</a></li>
-						</ul>
-					</li> -->
             <li><a href="contact.html">Contact</a></li>
-            <!-- Dark Mode Toggle -->
-            <div class="theme-toggle ms-3 d-flex align-items-center">
+            <li class="ms-lg-3">
               <button
                 id="theme-toggle"
-                class="btn btn-link p-0 border-0 bg-transparent"
+                class="theme-toggle"
                 aria-label="Toggle dark mode"
               >
-                <i id="theme-icon" class="bi bi-moon-fill"></i>
-                <span id="theme-text" class="ms-1 d-none d-md-inline"
+                <i id="theme-icon" class="bi bi-moon"></i>
+                <span id="theme-text" class="d-none d-lg-inline"
                   >Dark Mode</span
                 >
               </button>
-            </div>
+            </li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
@@ -533,13 +507,27 @@
               <p class="mt-3">
                 <strong>Phone:</strong> <span>(207) 626-1205</span>
               </p>
-              <p><strong>Email:</strong> <span>info@augustadowntown.com</span></p>
+              <p>
+                <strong>Email:</strong> <span>info@augustadowntown.com</span>
+              </p>
             </div>
             <div class="social-links d-flex mt-4">
-              <a href="https://www.facebook.com/AugustaDowntown" target="_blank"><i class="bi bi-facebook"></i></a>
-              <a href="https://www.instagram.com/augustadowntown" target="_blank"><i class="bi bi-instagram"></i></a>
-              <a href="https://twitter.com/AugustaDowntown" target="_blank"><i class="bi bi-twitter-x"></i></a>
-              <a href="https://www.linkedin.com/company/augusta-downtown-alliance" target="_blank"><i class="bi bi-linkedin"></i></a>
+              <a href="https://www.facebook.com/AugustaDowntown" target="_blank"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/augustadowntown"
+                target="_blank"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a href="https://twitter.com/AugustaDowntown" target="_blank"
+                ><i class="bi bi-twitter-x"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/company/augusta-downtown-alliance"
+                target="_blank"
+                ><i class="bi bi-linkedin"></i
+              ></a>
             </div>
           </div>
 
@@ -594,6 +582,35 @@
           © <span>Copyright</span>
           <strong class="px-1 sitename">Augusta Downtown</strong>
           <span>All Rights Reserved</span>
+        </p>
+      </div>
+
+      <!-- Credits Section -->
+      <div class="container credits text-center py-3">
+        <p>
+          Site developed and donated by
+          <a href="https://github.com/MusicalViking/maineBreadOfLife"
+             target="_blank"
+             rel="noopener noreferrer"
+             title="Visit Github for raw code.">
+            Arthur (Volunteer Developer).
+          </a>
+        </p>
+        <p>
+          Built with support from
+          <a href="https://bravebehindbars.org/"
+             target="_blank"
+             rel="noopener noreferrer">
+            MIT's Brave Behind Bars Program
+          </a>.
+        </p>
+        <p>
+          <a href="https://github.com/MusicalViking/License/blob/main/Belanger%20Non-commercial%20Open%20License(BNOL%20v1.0).md"
+             title="MIT License"
+             target="_blank"
+             rel="noopener noreferrer">
+            MIT License
+          </a>
         </p>
       </div>
     </footer>
