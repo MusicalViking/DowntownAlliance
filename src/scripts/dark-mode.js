@@ -10,11 +10,18 @@
 
 export class DarkMode {
   constructor() {
+    console.log('DarkMode: Initializing...');
     // Store all theme toggles on the page
     this.themeToggles = document.querySelectorAll('#theme-toggle');
     this.themeIcons = document.querySelectorAll('#theme-icon');
     this.themeTexts = document.querySelectorAll('#theme-text');
     this.prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+    console.log('DarkMode: Elements found:', {
+      toggles: this.themeToggles.length,
+      icons: this.themeIcons.length,
+      texts: this.themeTexts.length
+    });
 
     // Initialize dark mode
     this.init();
@@ -24,14 +31,14 @@ export class DarkMode {
     // Apply saved theme or system preference
     this.applyTheme();
 
-    // Add event listeners to all theme toggles
-    this.themeToggles.forEach(toggle => {
-      // Remove any existing listeners to prevent duplicates
-      const newToggle = toggle.cloneNode(true);
-      toggle.parentNode.replaceChild(newToggle, toggle);
-
-      // Add click event
-      newToggle.addEventListener('click', () => this.toggleTheme());
+    // Use event delegation for the theme toggle
+    document.addEventListener('click', (event) => {
+      // Check if the clicked element or any of its parents is a theme toggle
+      const toggle = event.target.closest('#theme-toggle');
+      if (toggle) {
+        event.preventDefault();
+        this.toggleTheme();
+      }
     });
 
     // Listen for system theme changes
@@ -43,12 +50,22 @@ export class DarkMode {
   }
 
   toggleTheme() {
+    console.log('DarkMode: Toggling theme...');
     const isDark = document.documentElement.classList.contains('dark-mode');
+    console.log('DarkMode: Current theme is dark?', isDark);
+    
     if (isDark) {
+      console.log('DarkMode: Switching to light mode');
       this.enableLightMode();
     } else {
+      console.log('DarkMode: Switching to dark mode');
       this.enableDarkMode();
     }
+    
+    // Force update the UI after a small delay to ensure the class has been toggled
+    setTimeout(() => {
+      this.updateToggleUI(!isDark);
+    }, 10);
   }
 
   applyTheme(forceDark = null) {
@@ -81,14 +98,20 @@ export class DarkMode {
   }
 
   updateToggleUI(isDarkMode) {
+    console.log('DarkMode: Updating UI for dark mode?', isDarkMode);
     // Update all theme icons and texts on the page
-    this.themeIcons.forEach(icon => {
+    this.themeIcons.forEach((icon, index) => {
+      console.log(`DarkMode: Updating icon ${index}`, icon);
       icon.classList.toggle('bi-moon', !isDarkMode);
       icon.classList.toggle('bi-sun', isDarkMode);
+      console.log('DarkMode: Icon classes after update:', icon.className);
     });
 
-    this.themeTexts.forEach(text => {
-      text.textContent = isDarkMode ? 'Light Mode' : 'Dark Mode';
+    this.themeTexts.forEach((text, index) => {
+      console.log(`DarkMode: Updating text ${index}`, text);
+      const newText = isDarkMode ? 'Light Mode' : 'Dark Mode';
+      console.log(`DarkMode: Setting text to '${newText}'`);
+      text.textContent = newText;
     });
 
     // Update all toggle buttons

@@ -162,7 +162,7 @@ VITE_API_BASE_URL=http://localhost:8000/api
 │   │   └── contact.php    # Contact form processor
 │   ├── img/               # Image assets
 │   │   ├── blog/          # Blog post images
-│   │   ├── education/     # Educational content images
+│   │   ├── local/     # Localal content images
 │   │   ├── misc/          # Miscellaneous images
 │   │   ├── person/        # Team member photos
 │   │   ├── apple-touch-icon.png  # iOS home screen icon
