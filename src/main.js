@@ -4,6 +4,8 @@ import 'aos/dist/aos.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'glightbox/dist/css/glightbox.css';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 import './styles/style.scss'; // Your custom styles
 
@@ -12,11 +14,13 @@ import 'bootstrap/js/dist/collapse';
 import 'bootstrap/js/dist/dropdown';
 import 'bootstrap/js/dist/modal';
 import 'bootstrap/js/dist/offcanvas';
+import 'bootstrap/js/dist/tab';
 import 'bootstrap/js/dist/tooltip';
 
 // --- 3. Third-Party Plugins
 import AOS from 'aos';
 import GLightbox from 'glightbox';
+import Swiper from 'swiper/bundle';
 import '/src/lib/purecounter_vanilla.js'; // PureCounter (vanilla, non-module)
 
 // --- 3.1 Dark Mode
@@ -30,12 +34,28 @@ function initTooltips() {
 
 // --- 5. Init AOS
 function initAOS() {
+	console.log('Initializing AOS...');
 	AOS.init({
 		duration: 800,
 		easing: 'ease-in-out',
 		once: true,
 		mirror: false
 	});
+	console.log('AOS initialized');
+
+	// Ensure elements with AOS attributes are visible even if AOS fails
+	const aosElements = document.querySelectorAll('[data-aos]');
+	aosElements.forEach(el => {
+		el.style.opacity = '1';
+		el.style.visibility = 'visible';
+	});
+
+	// Refresh AOS after a short delay to catch dynamically added elements
+	setTimeout(() => {
+		console.log('Refreshing AOS...');
+		AOS.refresh();
+		console.log('AOS refreshed');
+	}, 100);
 }
 
 // --- 6. Init PureCounter
@@ -189,6 +209,19 @@ function initApp() {
 
 	// Initialize Dark Mode
 	initDarkMode();
+
+	// Debug: Check if tabs are working
+	console.log('Checking tab elements...');
+	const tabButtons = document.querySelectorAll('[data-bs-toggle="pill"]');
+	const tabPanes = document.querySelectorAll('.tab-pane');
+	console.log(`Found ${tabButtons.length} tab buttons and ${tabPanes.length} tab panes`);
+
+	// Ensure all tab panes are properly initialized
+	tabPanes.forEach(pane => {
+		if (pane.classList.contains('active')) {
+			console.log(`Tab pane ${pane.id} is active`);
+		}
+	});
 }
 
 // --- 15. Launch App After DOM Loads

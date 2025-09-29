@@ -24,6 +24,7 @@ export class DarkMode {
   
   initializeDarkMode() {
     console.log('DarkMode: Initializing...');
+    
     // Store all theme toggles on the page
     this.themeToggles = document.querySelectorAll('#theme-toggle');
     this.themeIcons = document.querySelectorAll('#theme-icon');
@@ -35,6 +36,11 @@ export class DarkMode {
       icons: this.themeIcons.length,
       texts: this.themeTexts.length
     });
+
+    // Add dark mode class to html element immediately to prevent flash of light theme
+    if (localStorage.getItem('theme') !== 'light') {
+      document.documentElement.classList.add('dark-mode');
+    }
 
     // Initialize dark mode
     this.init();
@@ -70,26 +76,41 @@ export class DarkMode {
     if (isDark) {
       console.log('DarkMode: Switching to light mode');
       this.enableLightMode();
+      // Update UI immediately for better responsiveness
+      this.updateToggleUI(false);
     } else {
       console.log('DarkMode: Switching to dark mode');
       this.enableDarkMode();
+      // Update UI immediately for better responsiveness
+      this.updateToggleUI(true);
     }
     
-    // Force update the UI after a small delay to ensure the class has been toggled
-    setTimeout(() => {
+    // Force a reflow to ensure the transition happens smoothly
+    document.body.offsetHeight;
+    
+    // Add a small delay to ensure the DOM has updated
+    requestAnimationFrame(() => {
+      // Update UI again to ensure consistency
       this.updateToggleUI(!isDark);
-    }, 10);
+    });
   }
 
   applyTheme(forceDark = null) {
     const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = this.prefersDarkScheme.matches;
+    
+    // Default to dark mode (true) unless explicitly set to light
+    let isDark = true;
 
-    let isDark = false;
-
-    if (savedTheme === 'dark' || (savedTheme === null && systemPrefersDark) || forceDark === true) {
+    // Check for saved theme preference
+    if (savedTheme === 'light') {
+      isDark = false;
+    } else if (savedTheme === 'dark') {
       isDark = true;
     }
+    
+    // Allow force override
+    if (forceDark === true) isDark = true;
+    if (forceDark === false) isDark = false;
 
     if (isDark) {
       document.documentElement.classList.add('dark-mode');
@@ -112,15 +133,32 @@ export class DarkMode {
 
   updateToggleUI(isDarkMode) {
     console.log('DarkMode: Updating UI for dark mode?', isDarkMode);
+    
     // Update all theme icons and texts on the page
     this.themeIcons.forEach((icon, index) => {
+      if (!icon) return;
+      
       console.log(`DarkMode: Updating icon ${index}`, icon);
-      icon.classList.toggle('bi-moon', !isDarkMode);
-      icon.classList.toggle('bi-sun', isDarkMode);
+      
+      // Remove all possible icon classes first
+      icon.classList.remove('bi-moon', 'bi-sun');
+      
+      // Add the appropriate icon class
+      if (isDarkMode) {
+        icon.classList.add('bi-sun');
+        icon.classList.remove('bi-moon');
+      } else {
+        icon.classList.add('bi-moon');
+        icon.classList.remove('bi-sun');
+      }
+      
       console.log('DarkMode: Icon classes after update:', icon.className);
     });
 
+    // Update all theme text elements
     this.themeTexts.forEach((text, index) => {
+      if (!text) return;
+      
       console.log(`DarkMode: Updating text ${index}`, text);
       const newText = isDarkMode ? 'Light Mode' : 'Dark Mode';
       console.log(`DarkMode: Setting text to '${newText}'`);
@@ -129,10 +167,24 @@ export class DarkMode {
 
     // Update all toggle buttons
     this.themeToggles.forEach(toggle => {
+      if (!toggle) return;
+      
       const label = isDarkMode ? 'Switch to light mode' : 'Switch to dark mode';
+      const pressed = isDarkMode ? 'true' : 'false';
+      
+      // Update ARIA attributes for accessibility
       toggle.setAttribute('aria-label', label);
       toggle.setAttribute('title', label);
+      toggle.setAttribute('aria-pressed', pressed);
+      
+      // Add data-theme attribute for additional styling if needed
+      toggle.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
     });
+    
+    // Dispatch a custom event in case other components need to react to theme changes
+    document.dispatchEvent(new CustomEvent('themeChange', { 
+      detail: { isDarkMode } 
+    }));
   }
 }
 

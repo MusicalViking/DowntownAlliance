@@ -48,33 +48,88 @@
 }
 
 /* Dark Mode Styles */
+:root {
+  /* Add transition for smooth theme switching */
+  --transition-speed: 0.3s;
+  --transition-easing: ease-in-out;
+}
+
+/* Apply transition to all elements */
+*, *::before, *::after {
+  transition: 
+    background-color var(--transition-speed) var(--transition-easing),
+    color var(--transition-speed) var(--transition-easing),
+    border-color var(--transition-speed) var(--transition-easing),
+    box-shadow var(--transition-speed) var(--transition-easing);
+}
+
+/* Dark mode styles */
 .dark-mode {
-	--background-color: #1a1a1a;
-	--default-color: #e0e0e0;
-	--heading-color: #ffffff;
-	--surface-color: #252525;
-	--contrast-color: #ffffff;
-	--nav-color: rgba(255, 255, 255, 0.75);
-	--nav-hover-color: #4caf9d;
-	--nav-dropdown-background-color: #2d2d2d;
-	--nav-dropdown-color: #e0e0e0;
-	--nav-dropdown-hover-color: #4caf9d;
+  /* Base colors */
+  --background-color: #121212;
+  --surface-color: #1e1e1e;
+  --default-color: #e0e0e0;
+  --heading-color: #ffffff;
+  --contrast-color: #ffffff;
+  
+  /* Navigation */
+  --nav-color: rgba(255, 255, 255, 0.87);
+  --nav-hover-color: #4caf9d;
+  --nav-dropdown-background-color: #2d2d2d;
+  --nav-dropdown-color: #e0e0e0;
+  --nav-dropdown-hover-color: #4caf9d;
+  
+  /* Form elements */
+  --form-bg: #2d2d2d;
+  --form-border: #444;
+  --form-text: #e0e0e0;
+  --form-placeholder: #888;
+  
+  /* Cards and containers */
+  --card-bg: #252525;
+  --card-border: #333;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  /* Links and buttons */
+  --link-color: #4caf9d;
+  --link-hover: #3d8b7d;
+  --btn-primary-bg: #4caf9d;
+  --btn-primary-hover: #3d8b7d;
+  --btn-secondary-bg: #555;
+  --btn-secondary-hover: #666;
+  
+  /* Override specific elements */
+  background-color: var(--background-color);
+  color: var(--default-color);
 	/* Add smooth transition for theme switching */
 	transition: background-color 0.3s ease, color 0.3s ease;
 	/* Style adjustments for better dark mode contrast */
 	color: var(--default-color);
 	/* Override specific elements */
   	.theme-toggle {
-    		background: var(--theme-toggle-bg);
-    		color: var(--theme-toggle-color);
-    		border-color: var(--theme-toggle-border);
+    		background: var(--btn-secondary-bg);
+    		color: var(--default-color);
+    		border: 1px solid var(--form-border);
+    		border-radius: 4px;
+    		padding: 0.5rem 1rem;
+    		cursor: pointer;
+    		display: flex;
+    		align-items: center;
+    		gap: 0.5rem;
+    		transition: all var(--transition-speed) var(--transition-easing);
 
     		&:hover {
-      		background: var(--theme-toggle-hover-bg);
+      		background: var(--btn-secondary-hover);
+      		color: var(--contrast-color);
+      		transform: translateY(-1px);
     		}
 
     		&:active {
-      		background: var(--theme-toggle-active-bg);
+      		transform: translateY(0);
+    		}
+    		
+    		i {
+      		font-size: 1.1rem;
     		}
   	}
 	.card, .form-control, .dropdown-menu {
